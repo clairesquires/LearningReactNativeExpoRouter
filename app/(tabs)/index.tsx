@@ -1,4 +1,5 @@
 import styles from "@/assets/styles";
+import { Button } from "@/atoms/Button";
 import { Text, View } from "@/components/Themed";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -12,6 +13,7 @@ export default function TabOneScreen() {
         darkColor="rgba(255,255,255,0.1)"
       />
       <AntDesign name="home" size={62} color="black" />
+      <Button text="I'm an atom"></Button>
     </View>
   );
 }

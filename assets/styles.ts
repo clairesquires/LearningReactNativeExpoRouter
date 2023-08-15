@@ -15,6 +15,14 @@ const styles = StyleSheet.create({
     height: 1,
     width: "80%",
   },
+  button: {
+    backgroundColor: "#017BFE",
+    padding: 10,
+    borderRadius: 5,
+  },
+  whiteText: {
+    color: "#ffffff",
+  },
 });
 
 export default styles;
