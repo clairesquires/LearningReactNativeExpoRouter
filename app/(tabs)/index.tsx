@@ -1,7 +1,9 @@
 import styles from "@/assets/styles";
 import { Button } from "@/atoms/Button";
+
 import { Text, View } from "@/components/Themed";
 import { AntDesign } from "@expo/vector-icons";
+import { Link } from "expo-router";
 
 export default function TabOneScreen() {
   return (
@@ -14,6 +16,7 @@ export default function TabOneScreen() {
       />
       <AntDesign name="home" size={62} color="black" />
       <Button text="I'm an atom"></Button>
+      <Link href="/overflowing">See overflowing</Link>
     </View>
   );
 }
