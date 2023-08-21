@@ -7,15 +7,15 @@ const logButtonPress = (text: string) => {
 
 interface ButtonProps {
   text: string;
-  onPress?: () => void;
+  onPress?: () => Promise<void>;
 }
 
 export const Button: React.FC<ButtonProps> = ({ text, onPress = null }) => {
   return (
     <Pressable
-      onPress={() => {
+      onPress={async () => {
         logButtonPress(text);
-        onPress;
+        onPress && (await onPress());
       }}
       style={styles.button}
     >

@@ -1,5 +1,5 @@
 import styles from "@/assets/styles";
-import { BookFlatList } from "@/atoms/BookFlatList";
+import { BookFlatList } from "@/atoms/CustomFlatList";
 
 import { Text, View } from "@/components/Themed";
 import { Link } from "expo-router";

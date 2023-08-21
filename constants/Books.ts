@@ -1,4 +1,4 @@
-import { Book } from "@/atoms/BookFlatList";
+import { Book } from "@/atoms/Book";
 
 export const BOOKS: Book[] = [
   {

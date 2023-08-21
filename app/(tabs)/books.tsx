@@ -1,5 +1,6 @@
 import styles from "@/assets/styles";
-import { BookFlatList } from "@/atoms/BookFlatList";
+import { BookItem } from "@/atoms/Book";
+import { CustomFlatList } from "@/atoms/CustomFlatList";
 
 import { Text, View } from "@/components/Themed";
 import { BOOKS } from "@/constants/Books";
@@ -9,7 +10,7 @@ export default function BooksScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Books</Text>
-      <BookFlatList data={BOOKS} />
+      <CustomFlatList data={BOOKS} renderItem={BookItem} />
     </SafeAreaView>
   );
 }
