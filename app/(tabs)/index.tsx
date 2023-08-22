@@ -17,6 +17,7 @@ export default function TabOneScreen() {
       <AntDesign name="home" size={62} color="black" />
       <Button text="I'm an atom"></Button>
       <Link href="/overflowing">See overflowing</Link>
+      <Link href="/modal">See my modals</Link>
     </View>
   );
 }

@@ -1,35 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
-import { Platform, StyleSheet } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { Modal, Platform, Pressable, StyleSheet } from "react-native";
 
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+import EditScreenInfo from "@/components/EditScreenInfo";
+import { Text, View } from "@/components/Themed";
+import styles from "@/assets/styles";
+import { useState } from "react";
+import { Button } from "@/atoms/Button";
 
 export default function ModalScreen() {
+  const [nativeModalVisible, setNativeModalVisible] = useState(false);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Modal</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/modal.tsx" />
-
-      {/* Use a light status bar on iOS to account for the black space above the modal */}
-      <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
+      <Text style={styles.title}>All my modals</Text>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={nativeModalVisible}
+        onRequestClose={() => {
+          setNativeModalVisible(!nativeModalVisible);
+        }}
+      >
+        <View style={styles.centeredView}>
+          <Text style={styles.modalText}>React Native Modal</Text>
+          <Button
+            text="Hide"
+            onPress={() => setNativeModalVisible(!nativeModalVisible)}
+          />
+        </View>
+      </Modal>
+      <Button text="Native Modal" onPress={() => setNativeModalVisible(true)} />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});

@@ -7,7 +7,7 @@ const logButtonPress = (text: string) => {
 
 interface ButtonProps {
   text: string;
-  onPress?: () => Promise<void>;
+  onPress?: () => void;
 }
 
 export const Button: React.FC<ButtonProps> = ({ text, onPress = null }) => {
