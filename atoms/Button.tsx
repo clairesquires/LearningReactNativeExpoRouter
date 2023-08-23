@@ -2,7 +2,7 @@ import styles from "@/assets/styles";
 import { Pressable, Text } from "react-native";
 
 const logButtonPress = (text: string) => {
-  console.log(`<${text}> button has been pressed`);
+  console.log(`Button press: <${text}> has been pressed`);
 };
 
 interface ButtonProps {
