@@ -11,8 +11,8 @@ import {
   useGlobalSearchParams,
   usePathname,
 } from "expo-router";
-import { useEffect } from "react";
-import { useColorScheme } from "react-native";
+import { useEffect, useRef, useState } from "react";
+import { AppState, useColorScheme } from "react-native";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -43,6 +43,28 @@ export default function RootLayout() {
       SplashScreen.hideAsync();
     }
   }, [loaded]);
+
+  const appState = useRef(AppState.currentState);
+  const [appStateVisible, setAppStateVisible] = useState(appState.current);
+
+  useEffect(() => {
+    const subscription = AppState.addEventListener("change", (nextAppState) => {
+      if (
+        appState.current.match(/inactive|background/) &&
+        nextAppState === "active"
+      ) {
+        console.log("AppState: foreground");
+      }
+
+      appState.current = nextAppState;
+      setAppStateVisible(appState.current);
+      console.log("AppState:", appState.current);
+    });
+
+    return () => {
+      subscription.remove();
+    };
+  }, []);
 
   if (!loaded) {
     return null;
